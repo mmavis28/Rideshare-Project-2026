@@ -9,6 +9,7 @@ public class Car {
     private int currentStop;
     private int destination;
     private boolean isIdle;
+    private boolean atDestination;
 
     public Car(){
         carNum = carGen;
@@ -44,6 +45,10 @@ public class Car {
         return fullCar;
     } 
 
+    public int getStartStop(){
+        return startingStop;
+    }
+
     public int getCurrentStop(){
         return currentStop;
     }
@@ -56,10 +61,36 @@ public class Car {
         return isIdle;
     }
 
+    public boolean getDirection(){
+        return direction;
+    }
+
+    public boolean isAtDestination(){
+        return atDestination;
+    }
+
     //setters
 
     public void setDirection(){
+        if (startingStop > destination){
+            direction = false;
+        }
+        
+        else{
+            direction = true;
+        }
 
+    }
+
+    public void setDestination(){
+        if (currentStop == destination){
+            atDestination = true;
+            isIdle = true;
+        }
+        else{
+            atDestination = false;
+            isIdle = false;
+        }
     }
 
 }
