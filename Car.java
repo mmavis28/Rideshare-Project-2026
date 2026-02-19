@@ -4,7 +4,7 @@ public class Car {
     private int carGen = 1;
     private int numPass;
     private boolean fullCar;
-    private boolean direction;
+    private boolean direction; //false for backwards true for forward
     private int startingStop;
     private int currentStop;
     private int destination;
@@ -91,6 +91,31 @@ public class Car {
             atDestination = false;
             isIdle = false;
         }
+    }
+
+    //toString
+
+    public String toString(){
+        String s = "Car " + carNum + ": " + numPass + " passengers, car is currently at Station " + currentStop + ", cars destination is Station " + destination + ".";
+        s += " STATUS: ";
+        
+        if (isIdle == true){
+            s += carNum + "is Idle, ";
+        }
+        else{
+            s += carNum + "is Active, ";
+        }
+
+        if (fullCar == true){
+            s += carNum + "is full ";
+        }
+        else{
+            s += carNum + "has avalible seats";
+        }
+
+
+
+        return s;
     }
 
 }
