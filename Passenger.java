@@ -78,24 +78,31 @@ public class Passenger{
     //toString
 
     public String toString(){
-        String s = "Passenger " + passNum + ": passenger is currently at Station " + currentStation + ", passenger's destination is Station " + destination + ".";
-
-        if (inCar == true){
-            s += "Passenger " + passNum + " is currently in a car, ";
-        }
-        else{
-            s += "Passanger " + passNum + "is currently not in a car, ";
-        }
-
-        if (atDestination == true){
-            s += "Passenger " + passNum + " is at their destination: Station " + destination + ".";
-        }
-        else{
-            s += "Passenger " + passNum + " is still traveling to their destination: Station " + destination + ".";
-        }
-
-        return s;
+        return "Passenger " + passNum + ": Location = Station " + currentStation + ", Destination = Station " + destination + ".";
     }
+
+    
+    //oldtoString
+
+    //public String toString(){
+        //String s = "Passenger " + passNum + ": passenger is currently at Station " + currentStation + ", passenger's destination is Station " + destination + ".";
+
+        //if (inCar == true){
+        //    s += "Passenger " + passNum + " is currently in a car, ";
+        //}
+        //else{
+        //    s += "Passanger " + passNum + "is currently not in a car, ";
+        //}
+
+        //if (atDestination == true){
+        //    s += "Passenger " + passNum + " is at their destination: Station " + destination + ".";
+        //}
+        //else{
+        //    s += "Passenger " + passNum + " is still traveling to their destination: Station " + destination + ".";
+        //}
+
+        //return s;
+    //}
 
 
 }

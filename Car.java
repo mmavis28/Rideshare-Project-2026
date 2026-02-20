@@ -96,26 +96,33 @@ public class Car {
     //toString
 
     public String toString(){
-        String s = "Car " + carNum + ": " + numPass + " passengers, car is currently at Station " + currentStop + ", cars destination is Station " + destination + ".";
-        s += " STATUS: ";
-        
-        if (isIdle == true){
-            s += carNum + "is Idle, ";
-        }
-        else{
-            s += carNum + "is Active, ";
-        }
-
-        if (fullCar == true){
-            s += carNum + "is full ";
-        }
-        else{
-            s += carNum + "has avalible seats";
-        }
-
-
-
-        return s;
+        return "Car " + carNum + ": Location = Station " + currentStop + ", Destination = Station " + destination + ".";
     }
+
+
+    //old toString
+
+    //public String toString(){
+    //    String s = "Car " + carNum + ": " + numPass + " passengers, car is currently at Station " + currentStop + ", cars destination is Station " + destination + ".";
+    //    s += " STATUS: ";
+        
+    //    if (isIdle == true){
+    //        s += carNum + "is Idle, ";
+    //    }
+    //    else{
+    //        s += carNum + "is Active, ";
+    //  }
+
+    //    if (fullCar == true){
+    //        s += carNum + "is full ";
+    //    }
+    //    else{
+    //        s += carNum + "has avalible seats";
+    //    }
+
+
+
+    //    return s;
+    //}
 
 }
