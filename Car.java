@@ -1,7 +1,9 @@
+import java.util.ArrayList;
+
 public class Car {
 
     private int carNum;
-    private int carGen = 1;
+    private static int carGen = 1;
     private int numPass;
     private boolean fullCar;
     private boolean direction; //false for backwards true for forward
@@ -10,6 +12,7 @@ public class Car {
     private int destination;
     private boolean isIdle;
     private boolean atDestination;
+    private ArrayList<Passenger> passInCar; //holds passengers in the car
 
     public Car(){
         carNum = carGen;
@@ -28,6 +31,8 @@ public class Car {
         if (startingStop <= destination){
             direction = true;
         }
+
+        passInCar = new ArrayList<Passenger>();
 
     }
 
@@ -91,6 +96,48 @@ public class Car {
             atDestination = false;
             isIdle = false;
         }
+    }
+
+    //moving the car
+    public void move(){
+        if (isIdle == false){
+            if (direction == true){
+                currentStop ++; //moves to the next station forward
+            }
+            else{
+                currentStop --; //moves to the next station backward
+            }
+        }
+    }
+
+
+    //working with the passengers 
+
+    public void addPassenger(Passenger num){
+        if (passInCar.size() < 3){
+            passInCar.add(num);
+        }
+        numPass ++;
+
+    }
+
+    public void dropOffPassengers(Passenger num){
+        for (int i = passInCar.size() -1 ; i >= 0; i--){ //removing values from an array so going backwards 
+
+            Passenger p = passInCar.get(i);
+
+            if (p.getDestination() == currentStop){
+                p.setCurrentStation(currentStop);
+                p.setIsAtDestination();
+            }
+
+            passInCar.remove(i);
+
+
+        }
+
+
+        numPass = passInCar.size();
     }
 
     //toString
