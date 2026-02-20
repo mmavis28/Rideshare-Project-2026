@@ -133,9 +133,7 @@ public class Car {
 
             passInCar.remove(i);
 
-
         }
-
 
         numPass = passInCar.size();
     }
