@@ -3,7 +3,7 @@ import java.util.*;
 public class Passenger{
 
     private int passNum;
-    private int passGen = 1;
+    private static int passGen = 1;
     private int currentStation;
     private int startingStation;
     private int destination; //false for backwards true for forward
@@ -37,7 +37,7 @@ public class Passenger{
     }
 
     //getters 
-    public int getPassengerName(){
+    public int getPassengerNum(){
         return passNum;
     }
 
@@ -81,7 +81,7 @@ public class Passenger{
         return "Passenger " + passNum + ": Location = Station " + currentStation + ", Destination = Station " + destination + ".";
     }
 
-    
+
     //oldtoString
 
     //public String toString(){
