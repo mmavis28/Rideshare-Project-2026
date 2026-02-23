@@ -121,20 +121,32 @@ public class Car {
 
     }
 
-    public void dropOffPassengers(Passenger num){
+    public void dropOffPassengers(){
         if (isIdle == false){
         for (int i = passInCar.size() -1 ; i >= 0; i--){ //removing values from an array so going backwards 
 
             Passenger p = passInCar.get(i);
 
-            if (p.getDestination() == currentStop){
-                p.setCurrentStation(currentStop);
+            if (p.getDestination() == currentStop){ //if passenger is at their destination
+                p.setCurrentStation(currentStop); //sets currentstop
                 p.setIsAtDestination();
-                passInCar.remove(i);
+                passInCar.remove(i); //removes if at destination
             }
         }
         numPass = passInCar.size();
         }
+    }
+
+    public void unloadAllPass(){
+        for (int i = passInCar.size(); i >= 0; i--){
+            Passenger p = passInCar.get(i);
+
+            p.setCurrentStation(currentStop); //update current location
+            p.setIsAtDestination(); //check if they arrived 
+            passInCar.remove(i); //then removes all passengers from car
+
+        }
+        numPass = 0; // num passengers in car is 0 now
     }
 
     //toString
