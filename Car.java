@@ -152,7 +152,13 @@ public class Car {
     //toString
 
     public String toString(){
-        return "Car " + carNum + ": Location = Station " + currentStop + ", Destination = Station " + destination + ".";
+        String s = "Car " + carNum + ": {Location = Station " + currentStop + ", Destination = Station " + destination + "}";
+        s += "Passengers = [";
+        for (int i = 0; i < passInCar.size(); i++){
+            s += passInCar.get(i) + " ";
+        }
+        s += "]";
+        return s;
     }
 
 

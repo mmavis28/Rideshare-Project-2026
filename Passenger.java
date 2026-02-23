@@ -82,7 +82,7 @@ public class Passenger{
     //toString
 
     public String toString(){
-        return "Passenger " + passNum + ": Location = Station " + currentStation + ", Destination = Station " + destination + ".";
+        return "Passenger " + passNum + ": {Location = Station " + currentStation + ", Destination = Station " + destination + "}";
     }
 
 
