@@ -67,7 +67,18 @@ public class Road {
             }
 
             //if there is space pickup a passenger
+            Station current = stations[c.getCurrentStop()];
+            
+            for (int j = current.getWaiting().size(); i > 0; i--){ //uses the size of waiting array in station
+                if (c.isCarFull() == false){ //if the car isn't full then add passenger
+                    Passenger p = current.getWaiting().get(j); //getWaiting().get(j) access the getWaiting array in Station
 
+                    if (p.getDirection() == c.getDirection()){ //if the pass (j) and the car (c) are going the same direction then it works
+                        c.addPassenger(p); //adds pass j from waiting to car
+                        current.getWaiting().remove(j); //removes pass j from waiting since in car
+                    }
+                }
+            }
 
         // move the car again
          c.move();   
