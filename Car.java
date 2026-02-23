@@ -122,6 +122,7 @@ public class Car {
     }
 
     public void dropOffPassengers(Passenger num){
+        if (isIdle == false){
         for (int i = passInCar.size() -1 ; i >= 0; i--){ //removing values from an array so going backwards 
 
             Passenger p = passInCar.get(i);
@@ -129,13 +130,11 @@ public class Car {
             if (p.getDestination() == currentStop){
                 p.setCurrentStation(currentStop);
                 p.setIsAtDestination();
+                passInCar.remove(i);
             }
-
-            passInCar.remove(i);
-
         }
-
         numPass = passInCar.size();
+        }
     }
 
     //toString

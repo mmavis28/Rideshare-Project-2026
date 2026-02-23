@@ -41,6 +41,10 @@ public class Passenger{
         return passNum;
     }
 
+    public int getStartingStation(){
+        return startingStation;
+    }
+
     public int getCurrentStation(){
         return currentStation;
     }
