@@ -53,7 +53,7 @@ public class Road {
         //increase turn number
         turnNum ++;
 
-        for (int i = active.size(); i > 0; i--){
+        for (int i = active.size()-1; i >= 0; i--){
             Car c = active.get(i);
             
             //if passengers are at their stop drop them off
@@ -69,7 +69,7 @@ public class Road {
             //if there is space pickup a passenger
             Station current = stations[c.getCurrentStop()];
             
-            for (int j = current.getWaiting().size(); j > 0; j--){ //uses the size of waiting array in station
+            for (int j = current.getWaiting().size()-1; j >= 0; j--){ //uses the size of waiting array in station
                 if (c.isCarFull() == false){ //if the car isn't full then add passenger
                     Passenger p = current.getWaiting().get(j); //getWaiting().get(j) access the getWaiting array in Station
 
