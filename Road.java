@@ -10,7 +10,10 @@ public class Road {
     private ArrayList<Car> idle;
 
     public Road(String nameOfRoad){
-        Station [] stations = new Station[31];
+        Station [] stations = new Station[32];
+        for (int i = 0; i < 32; i++){
+            stations[i] = new Station(i); //set station number 1-31
+        }
         roadName = nameOfRoad;
         turnNum = 0;
 
@@ -18,8 +21,57 @@ public class Road {
         idle = new ArrayList<Car>();
     }
 
-    //setters 
+    //adding things to station
+
+    public void addCar(Car c){
+        active.add(c);
+    }
+
+    public void addPassenger (Passenger p){
+        int start = p.getStartingStation();
+        stations[start].addPassenger(p);
+    }
+
+    public void generatePassengers(int numPass){
+        for (int i = 0; i < numPass; i++){
+            Passenger p = new Passenger();
+            int start = p.getStartingStation();
+            stations[start].addPassenger(p);
+        }
+    }
+
+    public void generateCars(int numCars){
+        for (int i = 0; i < numCars; i++){
+            Car c = new Car();
+            active.add(c);
+        }
+    }
+
+    //actual turn 
+
+    public void turn(){
+        //increase turn number
+        turnNum ++;
+
+        for (int i = active.size(); i > 0; i--){
+            Car c = active.get(i);
+            
+            //if passengers are at their stop drop them off
+            c.dropOffPassengers();
+
+            //if car is at their stop make it idle and drop all passengers off
+            if (c.getDestination() == c.getCurrentStop()){
+                idle.add(c);
+                active.remove(c);
+                c.unloadAllPass();
+            }
+
+            //if there is space pickup a passenger
 
 
-    
+        // move the car again
+         c.move();   
+        }
+
+    }
 }
