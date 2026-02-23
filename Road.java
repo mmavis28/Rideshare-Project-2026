@@ -10,7 +10,7 @@ public class Road {
     private ArrayList<Car> idle;
 
     public Road(String nameOfRoad){
-        Station [] stations = new Station[32];
+        stations = new Station[32];
         for (int i = 0; i < 32; i++){
             stations[i] = new Station(i); //set station number 1-31
         }
@@ -69,7 +69,7 @@ public class Road {
             //if there is space pickup a passenger
             Station current = stations[c.getCurrentStop()];
             
-            for (int j = current.getWaiting().size(); i > 0; i--){ //uses the size of waiting array in station
+            for (int j = current.getWaiting().size(); j > 0; j--){ //uses the size of waiting array in station
                 if (c.isCarFull() == false){ //if the car isn't full then add passenger
                     Passenger p = current.getWaiting().get(j); //getWaiting().get(j) access the getWaiting array in Station
 

@@ -40,7 +40,7 @@ public class Station {
         return arrived.size();
     }
 
-    private int numCarsAtStation(){
+    public int numCarsAtStation(){
         return carsAtStation.size();
     }
 

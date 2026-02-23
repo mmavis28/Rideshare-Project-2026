@@ -17,7 +17,7 @@ public class Tester {
         int numTurns = 20;
         for (int i = 0; i < numTurns; i++){
             main.turn();
-            main.toString();
+            System.out.println(main.toString());
         }
 
         System.out.println("Rideshare complete!");
