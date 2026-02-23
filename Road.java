@@ -85,4 +85,14 @@ public class Road {
         }
 
     }
+
+    public String toString(){
+        String s = "Road: " + roadName + " is on turn " + turnNum + ". Number of active cars = " + active.size() + " Number of idle cars = " + idle.size() + ". \n";
+        
+        //printing all the stations
+        for (int i = 0; i < 32; i++){
+            s += stations[i].toString() + "\n";
+        }
+        return s;
+    }
 }
