@@ -78,7 +78,5 @@ public class Station {
 
         return s;
     }
-    
-    //print out all passengers 
 
 }
