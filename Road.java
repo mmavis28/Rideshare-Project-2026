@@ -11,7 +11,7 @@ public class Road {
 
     public Road(String nameOfRoad){
         stations = new Station[32];
-        for (int i = 0; i < 32; i++){
+        for (int i = 1; i <= 31; i++){
             stations[i] = new Station(i); //set station number 1-31
         }
         roadName = nameOfRoad;
@@ -87,10 +87,10 @@ public class Road {
     }
 
     public String toString(){
-        String s = "Road: " + roadName + " is on turn " + turnNum + ". Number of active cars = " + active.size() + " Number of idle cars = " + idle.size() + ". \n";
+        String s = "Road: " + roadName + " is on turn " + turnNum + ". Number of active cars = " + active.size() + ". Number of idle cars = " + idle.size() + ". \n";
         
         //printing all the stations
-        for (int i = 0; i < 32; i++){
+        for (int i = 1; i <= 31; i++){ //road 1-31
             s += stations[i].toString() + "\n";
         }
         return s;
