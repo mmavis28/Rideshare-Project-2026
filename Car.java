@@ -47,7 +47,12 @@ public class Car {
     }
 
     public boolean isCarFull(){
-        return fullCar;
+        if (passInCar.size() >= 3){
+            return true;
+        }
+        else{
+            return false;
+        }
     } 
 
     public int getStartStop(){
@@ -102,10 +107,14 @@ public class Car {
     public void move(){
         if (isIdle == false){
             if (direction == true){
-                currentStop ++; //moves to the next station forward
+                if (currentStop < 31){ //keeps the car in bounds
+                    currentStop ++; //moves to the next station forward
+                }  
             }
             else{
-                currentStop --; //moves to the next station backward
+                if (currentStop > 1){ //keeps the car in bounds
+                    currentStop --; //moves to the next station backward
+                }
             }
         }
     }
@@ -138,7 +147,7 @@ public class Car {
     }
 
     public void unloadAllPass(){
-        for (int i = passInCar.size(); i >= 0; i--){
+        for (int i = passInCar.size()-1; i >= 0; i--){
             Passenger p = passInCar.get(i);
 
             p.setCurrentStation(currentStop); //update current location
