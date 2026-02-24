@@ -58,6 +58,14 @@ public class Station {
         arrived.add(num); //only need an add no remove because only passengers who are at their destination go to the arrived arrayList
     }
 
+    public void addCar(Car c){
+        carsAtStation.add(c);
+    }
+
+    public void removeCar(Car c){
+        carsAtStation.remove(c);
+    } 
+
     //toString
 
     public String toString(){

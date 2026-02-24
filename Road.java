@@ -35,6 +35,8 @@ public class Road {
     public void generatePassengers(int numPass){
         for (int i = 0; i < numPass; i++){
             Passenger p = new Passenger();
+
+            //adds passengers to starting station
             int start = p.getStartingStation();
             stations[start].addPassenger(p);
         }
@@ -44,6 +46,10 @@ public class Road {
         for (int i = 0; i < numCars; i++){
             Car c = new Car();
             active.add(c);
+
+            //adds car to starting station
+            int start = c.getCurrentStop();
+            stations[start].addCar(c);
         }
     }
 
