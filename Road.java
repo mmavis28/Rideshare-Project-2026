@@ -85,9 +85,17 @@ public class Road {
                     }
                 }
             }
+            
+            //update car position
+            int oldStation = c.getCurrentStop(); //previous stop since car with move()
+            stations [oldStation].removeCar(c); //old station gets removed from stations array
 
         // move the car again
          c.move();   
+
+         int newStation = c.getCurrentStop(); //station updates
+         stations[newStation].addCar(c); //new station gets added to stations array
+
         }
 
     }
