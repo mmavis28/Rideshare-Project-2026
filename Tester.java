@@ -14,7 +14,7 @@ public class Tester {
         System.out.println("Initial Road: ");
         System.out.println(main);
 
-        int numTurns = 20;
+        int numTurns = 10;
         for (int i = 0; i < numTurns; i++){
             main.turn();
             System.out.println(main.toString());

@@ -4,7 +4,7 @@ public class Station {
 
     private int stationNum;
     private ArrayList<Passenger> waiting;
-    private ArrayList<Passenger> arrived;
+    private ArrayList<Passenger> arrived; 
     private ArrayList<Car> carsAtStation;
 
     public Station(int stationNumber){
