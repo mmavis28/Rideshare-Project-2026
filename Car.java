@@ -22,7 +22,15 @@ public class Car {
         startingStop = (int)((Math.random()*31)+ 1);
         currentStop = startingStop;
         destination = (int)((Math.random()*31)+ 1);
-        isIdle = false;
+        
+        if (currentStop == destination){
+            isIdle = true;
+        }
+        else{
+            isIdle = false;
+        }
+        
+
         
         if (startingStop > destination){
             direction = false;
@@ -48,9 +56,11 @@ public class Car {
 
     public boolean isCarFull(){
         if (passInCar.size() >= 3){
+            fullCar = true;
             return true;
         }
         else{
+            fullCar = false;
             return false;
         }
     } 
@@ -68,6 +78,12 @@ public class Car {
     }
 
     public boolean isCarIdle(){
+        if (currentStop == destination){
+            isIdle = true;
+        }
+        else{
+            isIdle = false;
+        }
         return isIdle;
     }
 
@@ -161,7 +177,14 @@ public class Car {
     //toString
 
     public String toString(){
-        String s = "Car " + carNum + ": {Location = Station " + currentStop + ", Destination = Station " + destination + "}";
+        String s = "Car " + carNum + ": {Location = Station " + currentStop + ", Destination = Station " + destination + ", ";
+        if (isIdle == true){
+            s += "Status: Idle}";
+
+        }
+        else{
+            s += "Status: Active}";
+        }
         s += " Passengers = [";
         for (int i = 0; i < passInCar.size(); i++){
             s += passInCar.get(i) + " ";
