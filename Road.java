@@ -86,15 +86,19 @@ public class Road {
                 }
             }
             
-            //update car position
+        //update car position
+        if (c.isCarIdle() == false){
             int oldStation = c.getCurrentStop(); //previous stop since car with move()
             stations [oldStation].removeCar(c); //old station gets removed from stations array
-
+        }
+            
         // move the car again
          c.move();   
 
-         int newStation = c.getCurrentStop(); //station updates
-         stations[newStation].addCar(c); //new station gets added to stations array
+         if (c.isCarIdle() == false){
+            int newStation = c.getCurrentStop(); //station updates
+            stations[newStation].addCar(c); //new station gets added to stations array
+        }
 
         }
 
@@ -102,7 +106,7 @@ public class Road {
 
     public String toString(){
         String s = "Road: " + roadName + " is on turn " + turnNum + ". Number of active cars = " + active.size() + ". Number of idle cars = " + idle.size() + ". \n";
-        
+        s += "\n";
         //printing all the stations
         for (int i = 1; i <= 31; i++){ //road 1-31
             s += stations[i].toString() + "\n";
