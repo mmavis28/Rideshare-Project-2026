@@ -146,7 +146,8 @@ public class Car {
 
     }
 
-    public void dropOffPassengers(){
+    public ArrayList<Passenger> dropOffPasengers(){
+        ArrayList<Passenger> passDroppedOff = new ArrayList();
         if (isIdle == false){
         for (int i = passInCar.size() -1 ; i >= 0; i--){ //removing values from an array so going backwards 
 
@@ -155,23 +156,29 @@ public class Car {
             if (p.getDestination() == currentStop){ //if passenger is at their destination
                 p.setCurrentStation(currentStop); //sets currentstop
                 p.setIsAtDestination();
+                passDroppedOff.add(p); //adds dropped off pasenger to dropped list so it doesn't just dissapear
                 passInCar.remove(i); //removes if at destination
             }
         }
         numPass = passInCar.size();
         }
+        return passDroppedOff;
     }
 
     public void unloadAllPass(){
-        for (int i = passInCar.size()-1; i >= 0; i--){
-            Passenger p = passInCar.get(i);
+        if (isIdle == true){
+            for (int i = passInCar.size()-1; i >= 0; i--){
+                Passenger p = passInCar.get(i);
 
-            p.setCurrentStation(currentStop); //update current location
-            p.setIsAtDestination(); //check if they arrived 
-            passInCar.remove(i); //then removes all passengers from car
+                p.setCurrentStation(currentStop); //update current location
+                p.setIsAtDestination(); //check if they arrived 
+                passInCar.remove(i); //then removes all passengers from car
 
-        }
+            }
+
         numPass = 0; // num passengers in car is 0 now
+        
+        }
     }
 
     //toString

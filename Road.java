@@ -8,6 +8,7 @@ public class Road {
 
     private ArrayList<Car> active;
     private ArrayList<Car> idle;
+    private ArrayList<Passenger> droppedOffPassengers;
 
     public Road(String nameOfRoad){
         stations = new Station[32];
@@ -19,6 +20,7 @@ public class Road {
 
         active = new ArrayList<Car>();
         idle = new ArrayList<Car>();
+        droppedOffPassengers = new ArrayList <Passenger>();
     }
 
     //adding things to station
@@ -63,7 +65,13 @@ public class Road {
             Car c = active.get(i);
             
             //if passengers are at their stop drop them off
-            c.dropOffPassengers();
+            Station current = stations[c.getCurrentStop()];
+
+            for (int k = 0; i < droppedOffPassengers.size(); i++){
+                Passenger p = droppedOffPassengers.get(i);
+                current.arrivedPassenger(p);
+            }
+
 
             //if car is at their stop make it idle and drop all passengers off
             if (c.getDestination() == c.getCurrentStop()){
@@ -73,7 +81,6 @@ public class Road {
             }
 
             //if there is space pickup a passenger
-            Station current = stations[c.getCurrentStop()];
             
             for (int j = current.getWaiting().size()-1; j >= 0; j--){ //uses the size of waiting array in station
                 if (c.isCarFull() == false){ //if the car isn't full then add passenger
