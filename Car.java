@@ -132,6 +132,10 @@ public class Car {
                     currentStop --; //moves to the next station backward
                 }
             }
+            for (int i = 0; i < passInCar.size(); i++){
+                Passenger p = passInCar.get(i);
+                p.setCurrentStation(currentStop); //adjusts current position for passengers
+            }
         }
     }
 

@@ -31,7 +31,13 @@ public class Road {
 
     public void addPassenger (Passenger p){
         int start = p.getStartingStation();
-        stations[start].addPassenger(p);
+
+        if (p.getStartingStation() == p.getDestination()){ //if the passenger starts off at their destination makes them arrived
+            stations[start].arrivedPassenger(p);
+        }
+        else{
+            stations[start].addPassenger(p);
+        }
     }
 
     public void generatePassengers(int numPass){
@@ -40,7 +46,12 @@ public class Road {
 
             //adds passengers to starting station
             int start = p.getStartingStation();
-            stations[start].addPassenger(p);
+            if (p.getStartingStation() == p.getDestination()){ //if the passenger starts off at their destination makes them arrived
+                stations[start].arrivedPassenger(p);
+            }
+            else{
+                stations[start].addPassenger(p);
+            }
         }
     }
 
