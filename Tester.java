@@ -21,6 +21,7 @@ public class Tester {
         }
 
         System.out.println("Rideshare complete!");
+        System.out.println("Percentage of passengers that arrived at their destination: " + main.percentArrived() + "%");
     }
     
 }

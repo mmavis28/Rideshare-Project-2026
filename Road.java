@@ -5,6 +5,7 @@ public class Road {
     private Station[] stations;
     private String roadName;
     private int turnNum;
+    private int totalPasengers;
 
     private ArrayList<Car> active;
     private ArrayList<Car> idle;
@@ -17,6 +18,7 @@ public class Road {
         }
         roadName = nameOfRoad;
         turnNum = 0;
+        totalPasengers = 0;
 
         active = new ArrayList<Car>();
         idle = new ArrayList<Car>();
@@ -41,6 +43,8 @@ public class Road {
     }
 
     public void generatePassengers(int numPass){
+
+        totalPasengers = numPass;
         for (int i = 0; i < numPass; i++){
             Passenger p = new Passenger();
 
@@ -66,6 +70,19 @@ public class Road {
         }
     }
 
+    //percent complete
+
+    public double percentArrived(){
+
+        int arrived = 0;
+
+        for (int i = 1; i <= 31; i++){
+            arrived = stations[i].getArrived().size();
+        }
+
+        return (arrived*100.0)/totalPasengers;
+    }
+
     //actual turn 
 
     public void turn(){
@@ -78,7 +95,7 @@ public class Road {
             //if passengers are at their stop drop them off
             Station current = stations[c.getCurrentStop()];
 
-            for (int k = 0; i < droppedOffPassengers.size(); i++){
+            for (int k = 0; k < droppedOffPassengers.size(); k++){
                 Passenger p = droppedOffPassengers.get(i);
                 current.arrivedPassenger(p);
             }
