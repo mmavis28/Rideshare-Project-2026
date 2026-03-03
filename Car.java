@@ -169,20 +169,22 @@ public class Car {
         return passDroppedOff;
     }
 
-    public void unloadAllPass(){
+    public ArrayList<Passenger> unloadAllPass(){
+        ArrayList <Passenger> removed = new ArrayList<Passenger>();
+
         if (isIdle == true){
-            for (int i = passInCar.size()-1; i >= 0; i--){
+            for (int i = passInCar.size() - 1; i >= 0; i--){
                 Passenger p = passInCar.get(i);
 
                 p.setCurrentStation(currentStop); //update current location
                 p.setIsAtDestination(); //check if they arrived 
+                removed.add(p);
                 passInCar.remove(i); //then removes all passengers from car
 
             }
-
-        numPass = 0; // num passengers in car is 0 now
-        
         }
+        numPass = 0; // num passengers in car is 0 now
+        return removed;
     }
 
     //toString
