@@ -145,8 +145,8 @@ public class Car {
     public void addPassenger(Passenger num){
         if (passInCar.size() < 3){
             passInCar.add(num);
+            numPass ++;
         }
-        numPass ++;
 
     }
 
@@ -172,7 +172,6 @@ public class Car {
     public ArrayList<Passenger> unloadAllPass(){
         ArrayList <Passenger> removed = new ArrayList<Passenger>();
 
-        if (isIdle == true){
             for (int i = passInCar.size() - 1; i >= 0; i--){
                 Passenger p = passInCar.get(i);
 
@@ -182,7 +181,7 @@ public class Car {
                 passInCar.remove(i); //then removes all passengers from car
 
             }
-        }
+
         numPass = 0; // num passengers in car is 0 now
         return removed;
     }

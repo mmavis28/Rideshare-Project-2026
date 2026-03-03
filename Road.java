@@ -56,9 +56,6 @@ public class Road {
         for (int i = 0; i < numCars; i++){
             Car c = new Car();
             addCar(c);
-
-            //adds car to starting station
-            int start = c.getCurrentStop();
         }
     }
 
@@ -111,7 +108,7 @@ public class Road {
                 if (c.isCarFull() == false){ //if the car isn't full then add passenger
                     Passenger p = current.getWaiting().get(j); //getWaiting().get(j) access the getWaiting array in Station
 
-                    if (p.getDirection() == c.getDirection() && c.isCarIdle() == false && c.isCarFull() == false){ //if the pass (j) and the car (c) are going the same direction then it works and not full car and car not idle
+                    if (p.getDirection() == c.getDirection() && c.isCarIdle() == false){ //if the pass (j) and the car (c) are going the same direction then it works and is car is not idle
                         c.addPassenger(p); //adds pass j from waiting to car
                         current.getWaiting().remove(j); //removes pass j from waiting since in car
                     }
