@@ -31,7 +31,6 @@ public class Road {
     }
 
     public void addPassenger (Passenger p){
-        totalPasengers ++;
         int start = p.getStartingStation();
 
         if (p.getStartingStation() == p.getDestination()){ //if the passenger starts off at their destination makes them arrived
@@ -44,7 +43,7 @@ public class Road {
 
     public void generatePassengers(int numPass){
 
-        totalPasengers = numPass;
+        totalPasengers ++;
 
         for (int i = 0; i < numPass; i++){
             Passenger p = new Passenger();
