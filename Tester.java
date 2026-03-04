@@ -9,7 +9,7 @@ public class Tester {
         int numCars2 = 40;
 
         main.generatePassengers(numPass);
-        main.generateCars(numCars1); //can change to numCars2
+        main.generateCars(numCars2); //can change to numCars1
 
         System.out.println("Initial Road: ");
         System.out.println(main);

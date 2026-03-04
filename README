@@ -1,11 +1,27 @@
+Description:
 
-issues:
-//still need to fix arrrived and waiting passengers
-// cars need to drop off passengers earlier when at the station
-//doesn't print the beginig all the way??? [need to see initial]
-    - somehow make it print slower
-//location of passenger is not updating when they are in a car :(
-//if a passenger is already at station put them in arrived not waiting
+This project simulates a road with 32 stations. All the passengers and cars are randomly generated at a starting station and with a destination. Each car starts at its random starting position and moves one station in the direction of its destination on each turn. Each car has three seats available. If a passenger is going the same direction as the car and if the car has seats available the car will pick up the passenger. If the car arrives at a passenger's destination, the passenger will get out of the car at their destination. If a car reaches its destination it unloads all the passengers in their car to its destination station, no matter what the passenger's destination is and become idle (not in use).
 
-tasks:
-    //make read me
+
+At the end of the simulation, a percentage is calculated to determine how many passengers reached their destination.
+
+
+Results:
+
+Senerio One: 20 cars, 50 passengers
+Average arival percentage: 48% (ranges from 30-70)
+
+Senerio Two: 40 cars, 50 passengers
+Average arival percentage: 66% (ranges from 50-80)
+
+Proud of:
+
+One thing that I am proud of in this project is my Road class. I spent the most time on this road class because it was the hardest part for me to make. I essentially had to redo it twice to get it right. However, I really like how it turned out because of my formatting. I especially liked how I formatted and sectioned out the turn method. I like how my turn method encompasses all the elements, but all the different functions like dropping off the passengers and picking up the passengers are in different sections, making it clear and easy to follow. I like my formatting a lot throughout the project. I think it helped me stay organized through all the different components and was easy to read, so if I knew I had a problem in a specific section, I could find that section right away.
+
+Challenge:
+
+One thing that I thought was a challenge was ensuring that my tester printed out what I wanted. I couldn't find a way to test my program while I was writing it, so I wrote all my classes before testing them and eventually realized it didn't even print anything because there was so many errors. I think one of the biggest challenges were getting the arrived and waiting arraylist working, because it required working with a lot of elements such as the car, station, and passenger. I had to constantly remove and add passengers from my arrived arraylist to my waiting arraylist and vise versa. I figured out that using a temporary arrayList to store values before adding them to a permentant arraylist like arrived and waiting allowed me to print all the values out.
+
+
+
+
