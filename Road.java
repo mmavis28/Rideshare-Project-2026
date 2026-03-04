@@ -43,9 +43,8 @@ public class Road {
 
     public void generatePassengers(int numPass){
 
-        totalPasengers ++;
-
         for (int i = 0; i < numPass; i++){
+            totalPasengers ++;
             Passenger p = new Passenger();
             addPassenger(p); //uses above to add
         }
