@@ -97,7 +97,12 @@ public class Road {
                 ArrayList<Passenger> remaining = c.unloadAllPass();
                 for (int a = 0; a < remaining.size(); a++){
                     Passenger p = remaining.get(a);
-                    stations[p.getCurrentStation()].arrivedPassenger(p);
+                    if (p.getDestination() == p.getCurrentStation()){
+                      stations[p.getCurrentStation()].arrivedPassenger(p);  //if passenger is at their destination it adds them to arrived
+                    }
+                    else{
+                        stations[p.getCurrentStation()].getWaiting().add(p); //adds passenger to waiting if they aren't at their destination
+                    }
                 }
             }
 
