@@ -2,35 +2,33 @@ import java.util.ArrayList;
 
 public class Car {
 
-    private int carNum;
+    private int carNum; //car ID number
     private static int carGen = 1;
-    private int numPass;
-    private boolean fullCar;
+    private int numPass; //number of passengers in specific car
+    private boolean fullCar; //true if car has 3 passenger
     private boolean direction; //false for backwards true for forward
     private int startingStop;
     private int currentStop;
     private int destination;
-    private boolean isIdle;
+    private boolean isIdle; //if car is at their destination this is set true
     private boolean atDestination;
     private ArrayList<Passenger> passInCar; //holds passengers in the car
 
     public Car(){
         carNum = carGen;
         carGen ++;
-        numPass = 0;
+        numPass = 0; 
         fullCar = false;
-        startingStop = (int)((Math.random()*31)+ 1);
-        currentStop = startingStop;
-        destination = (int)((Math.random()*31)+ 1);
+        startingStop = (int)((Math.random()*31)+ 1); //generates a random starting station from 1-31
+        currentStop = startingStop; //sets initial stop to starting stop generated
+        destination = (int)((Math.random()*31)+ 1); //generates a random destination from 1-31
         
         if (currentStop == destination){
             isIdle = true;
         }
         else{
             isIdle = false;
-        }
-        
-
+        }   
         
         if (startingStop > destination){
             direction = false;
@@ -54,7 +52,7 @@ public class Car {
         return numPass;
     }
 
-    public boolean isCarFull(){
+    public boolean isCarFull(){ //returns true if there is 3 passengers
         if (passInCar.size() >= 3){
             fullCar = true;
             return true;
@@ -142,7 +140,7 @@ public class Car {
 
     //working with the passengers 
 
-    public void addPassenger(Passenger num){
+    public void addPassenger(Passenger num){ //passenger enters car
         if (passInCar.size() < 3){
             passInCar.add(num);
             numPass ++;

@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class Station {
 
     private int stationNum;
-    private ArrayList<Passenger> waiting;
-    private ArrayList<Passenger> arrived; 
-    private ArrayList<Car> carsAtStation;
+    private ArrayList<Passenger> waiting; //passengers waiting for a car to get them to their station
+    private ArrayList<Passenger> arrived;  //passengers that are at their arrived station
+    private ArrayList<Car> carsAtStation; //cars at different stations
 
     public Station(int stationNumber){
         stationNum = stationNumber;
@@ -46,11 +46,11 @@ public class Station {
 
     //setters
 
-    public void addPassenger(Passenger num){
+    public void addPassenger(Passenger num){ //adds new passenger to waiting
         waiting.add(num);
     }
 
-    public void removePassenger(Passenger num){
+    public void removePassenger(Passenger num){ //removes passenger from waiting
         waiting.remove(num);
     }
 
@@ -59,7 +59,7 @@ public class Station {
     }
 
     public void addCar(Car c){
-        carsAtStation.add(c);
+        carsAtStation.add(c); 
     }
 
     public void removeCar(Car c){

@@ -7,12 +7,12 @@ public class Road {
     private int turnNum;
     private int totalPasengers;
 
-    private ArrayList<Car> active;
-    private ArrayList<Car> idle;
+    private ArrayList<Car> active; //cars still traveling to their destination
+    private ArrayList<Car> idle; //cars that have reached their destination
 
     public Road(String nameOfRoad){
         stations = new Station[32]; 
-        for (int i = 1; i <= 31; i++){
+        for (int i = 1; i <= 31; i++){ //startion[0] is unused
             stations[i] = new Station(i); //set station number 1-31
         }
         roadName = nameOfRoad;
@@ -44,7 +44,7 @@ public class Road {
     public void generatePassengers(int numPass){
 
         for (int i = 0; i < numPass; i++){
-            totalPasengers ++;
+            totalPasengers ++; 
             Passenger p = new Passenger();
             addPassenger(p); //uses above to add
         }
@@ -61,15 +61,15 @@ public class Road {
 
     public double percentArrived(){
 
-        int arrived = 0;
+        int arrived = 0; //number of passengers arrived
 
         for (int i = 1; i <= 31; i++){
             arrived += stations[i].getArrived().size();
         }
-        return ((arrived*100.0)/totalPasengers);
+        return ((arrived*100.0)/totalPasengers); 
     }
 
-    //actual turn 
+    //turn 
 
     public void turn(){
         //increase turn number

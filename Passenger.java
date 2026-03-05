@@ -6,32 +6,33 @@ public class Passenger{
     private static int passGen = 1;
     private int currentStation;
     private int startingStation;
-    private int destination; //false for backwards true for forward
-    private boolean direction;
-    private boolean inCar;
+    private int destination; 
+    private boolean direction; //false for backwards true for forward
+    private boolean inCar; 
     private boolean atDestination;
 
     public Passenger(){
         passNum = passGen;
         passGen ++;
-        startingStation = (int)((Math.random()*31)+ 1);
-        destination = (int)((Math.random()*31)+ 1);
-        currentStation = startingStation;
-        inCar = false;
+        startingStation = (int)((Math.random()*31)+ 1); //randomly generate a stating station from 1-31
+        destination = (int)((Math.random()*31)+ 1); //randomly generate a destination from 1-31
+        currentStation = startingStation; //initializes passenger at their starting station
+        inCar = false; //all don't stat in a car
         
         if (startingStation > destination){
             direction = false;
-        }
+        } //moving backwards ex Station 1 -> Station 6
         
         if (startingStation <= destination){
             direction = true;
-        }
+        } //moving forward ex: Station 6 -> Station 1
 
         if (currentStation == destination){
             atDestination = true;
-        }
+        } //if the passenger starting station is where their destination is sets they are at their destination already
+
         else{
-            atDestination = false;
+            atDestination = false; 
         }
 
     }
@@ -75,7 +76,7 @@ public class Passenger{
         }
     }
 
-    public void setCurrentStation(int newStation){
+    public void setCurrentStation(int newStation){ //updates currentStation
         currentStation = newStation;
     }
 
